@@ -1,0 +1,16 @@
+[
+  {
+    "employeeId": "EMP001",
+    "password": "123456",
+    "name": "Rahul Sharma",
+    "managerEmail": "shikharseth2003@gmail.com",
+    "region": "North"
+  },
+  {
+    "employeeId": "EMP002",
+    "password": "123456",
+    "name": "Amit Kumar",
+    "managerEmail": "shikharseth2003@gmail.com",
+    "region": "West"
+  }
+]
