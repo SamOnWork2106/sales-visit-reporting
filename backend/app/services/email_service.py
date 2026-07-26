@@ -1,7 +1,9 @@
-from app.config.settings import settings
-from app.models.email import EmailData
+import base64
 
 import resend
+
+from app.config.settings import settings
+from app.models.email import EmailData
 
 
 def send_email(email_data: EmailData) -> None:
@@ -11,21 +13,23 @@ def send_email(email_data: EmailData) -> None:
 
     resend.api_key = settings.RESEND_API_KEY
 
-    with open(email_data.pdf_path, "rb") as pdf:
-        params = {
-            "from": "Sales Visit Reporting <onboarding@resend.dev>",
-            "to": [email_data.receiver_email],
-            "subject": email_data.subject,
-            "html": email_data.html,
-            "attachments": [
-                {
-                    "filename": "Sales_Report.pdf",
-                    "content": pdf.read(),
-                }
-            ],
-        }
+    with email_data.pdf_path.open("rb") as pdf_file:
+        pdf_base64 = base64.b64encode(pdf_file.read()).decode("utf-8")
 
-        resend.Emails.send(params)
+    params = {
+        "from": "Sales Visit Reporting <onboarding@resend.dev>",
+        "to": [email_data.receiver_email],
+        "subject": email_data.subject,
+        "html": email_data.html,
+        "attachments": [
+            {
+                "filename": "Sales_Report.pdf",
+                "content": pdf_base64,
+            }
+        ],
+    }
+
+    resend.Emails.send(params)
 
 
 
