@@ -1,0 +1,31 @@
+export const visitTypeOptions = [
+  "Office Visit",
+  "Dealer Visit",
+  "Distributor Visit",
+  "Factory Visit",
+  "Retail Visit",
+  "Customer Meeting",
+  "Follow-up Visit",
+  "Payment Collection",
+  "Complaint Resolution",
+  "Product Demonstration",
+  "Custom...",
+];
+
+export const nextActionOptions = [
+  "Follow-up Call",
+  "Send Quotation",
+  "Prepare Proposal",
+  "Product Demonstration",
+  "Share Brochure",
+  "Send Samples",
+  "Arrange Next Meeting",
+  "Payment Follow-up",
+  "Order Confirmation",
+  "Technical Discussion",
+  "Management Approval",
+  "Price Negotiation",
+  "Collect Documents",
+  "Await Customer Response",
+  "Custom...",
+];

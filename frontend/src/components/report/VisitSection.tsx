@@ -38,6 +38,7 @@ export default function VisitSection({
        <VisitCard
             key={field.id}
             index={index}
+            control={control}
             register={register}
             remove={remove}
             canRemove={fields.length > 1}

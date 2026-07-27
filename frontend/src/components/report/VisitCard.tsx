@@ -5,10 +5,18 @@ import Input from "../common/Input";
 import TextArea from "../common/TextArea";
 import Button from "../common/Button";
 import { Building2 } from "lucide-react";
+import { Controller } from "react-hook-form";
+import SelectWithCustom from "../common/SelectWithCustom";
+
+import {
+  visitTypeOptions,
+  nextActionOptions,
+} from "../../config/reportOptions";
 
 interface Props {
   index: number;
   register: UseFormRegister<ReportForm>;
+  control: any;
   remove: (index: number) => void;
   canRemove: boolean;
 }
@@ -17,6 +25,7 @@ export default function VisitCard({
   index,
   register,
   remove,
+  control,
   canRemove,
 }: Props) {
   return (
@@ -49,10 +58,17 @@ export default function VisitCard({
 
       <div className="grid md:grid-cols-2 gap-5">
 
-        <Input
-          placeholder="Visit Type"
-          {...register(`visits.${index}.visitType`)}
-          className="border rounded-lg p-3"
+        <Controller
+          control={control}
+          name={`visits.${index}.visitType`}
+          render={({ field }) => (
+            <SelectWithCustom
+              placeholder="Visit Type"
+              value={field.value}
+              onChange={field.onChange}
+              options={visitTypeOptions}
+            />
+          )}
         />
 
         <Input
@@ -85,16 +101,23 @@ export default function VisitCard({
           className="border rounded-lg p-3"
         />
 
+        <Controller
+          control={control}
+          name={`visits.${index}.nextAction`}
+          render={({ field }) => (
+            <SelectWithCustom
+              placeholder="Next Action"
+              value={field.value}
+              onChange={field.onChange}
+              options={nextActionOptions}
+            />
+          )}
+        />
+
         <TextArea
           placeholder="Discussion Summary *"
           {...register(`visits.${index}.discussionSummary`)}
           className="border rounded-lg p-3 md:col-span-2"
-        />
-
-        <TextArea
-          placeholder="Next Action *"
-          {...register(`visits.${index}.nextAction`)}
-          className="border rounded-lg p-3"
         />
 
         <Input
