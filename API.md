@@ -113,7 +113,7 @@ POST /report/generate-summary
       "location": "Delhi",
       "personMet": "Rajesh Gupta",
       "designation": "Purchase Manager",
-      "decisionMaker": "Yes",
+      "clientPhoneNumber": "9559468808",
       "discussionSummary": "Discussed pricing and renewal.",
       "nextAction": "Send quotation",
       "followUpDate": "2026-07-30"
@@ -202,7 +202,7 @@ POST /report/submit-report
       "location": "Delhi",
       "personMet": "Rajesh Gupta",
       "designation": "Purchase Manager",
-      "decisionMaker": "Yes",
+      "clientPhoneNumber": "9559468808",
       "discussionSummary": "Discussed pricing and renewal.",
       "nextAction": "Send quotation",
       "followUpDate": "2026-07-30"
@@ -276,7 +276,7 @@ Status Code
 | location | string | Yes |
 | personMet | string | Yes |
 | designation | string | Yes |
-| decisionMaker | string | Yes |
+| clientPhoneNumber | Tel | Yes |
 | discussionSummary | string | Yes |
 | nextAction | string | Yes |
 | followUpDate | date | No |

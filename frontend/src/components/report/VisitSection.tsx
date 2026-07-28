@@ -54,7 +54,7 @@ export default function VisitSection({
             location: "",
             personMet: "",
             designation: "",
-            decisionMaker: "",
+            clientPhoneNumber: "",
             discussionSummary: "",
             nextAction: "",
             followUpDate: "",

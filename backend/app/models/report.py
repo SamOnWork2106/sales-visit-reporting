@@ -9,7 +9,7 @@ class Visit(BaseModel):
     location: str
     personMet: str
     designation: str
-    decisionMaker: str
+    clientPhoneNumber: str
     discussionSummary: str
     nextAction: str
     followUpDate: date | None = None

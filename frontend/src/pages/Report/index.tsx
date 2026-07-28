@@ -47,7 +47,7 @@ export default function ReportPage() {
           location: "",
           personMet: "",
           designation: "",
-          decisionMaker: "",
+          clientPhoneNumber: "",
           discussionSummary: "",
           nextAction: "",
           followUpDate: "",

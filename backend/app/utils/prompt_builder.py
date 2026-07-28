@@ -71,6 +71,7 @@
 from app.models.summary import SummaryRequest
 
 
+
 def build_summary_prompt(report: SummaryRequest) -> str:
 
     visits = ""
@@ -83,7 +84,6 @@ Client: {visit.clientName}
 Location: {visit.location}
 Person Met: {visit.personMet}
 Designation: {visit.designation}
-Decision Maker: {visit.decisionMaker}
 Discussion: {visit.discussionSummary}
 Next Action: {visit.nextAction}
 Follow Up: {visit.followUpDate}

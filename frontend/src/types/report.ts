@@ -13,7 +13,7 @@ export interface Visit {
   location: string;
   personMet: string;
   designation: string;
-  decisionMaker: string;
+  clientPhoneNumber: string;
   discussionSummary: string;
   nextAction: string;
   followUpDate: string;

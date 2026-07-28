@@ -13,6 +13,7 @@ def generate_html(report: ReportRequest) -> str:
             <td>{visit.clientName}</td>
             <td>{visit.personMet}</td>
             <td>{visit.designation}</td>
+            <td>{visit.clientPhoneNumber}</td>
             <td>{visit.discussionSummary}</td>
             <td>{visit.nextAction}</td>
         </tr>
@@ -85,6 +86,7 @@ th {{
 <th>Client</th>
 <th>Person Met</th>
 <th>Designation</th>
+<th>Phone Number</th>
 <th>Discussion</th>
 <th>Next Action</th>
 </tr>

@@ -96,8 +96,9 @@ export default function VisitCard({
         />
 
         <Input
-          placeholder="Decision Maker"
-          {...register(`visits.${index}.decisionMaker`)}
+          type="tel"
+          placeholder="Client Phone Number"
+          {...register(`visits.${index}.clientPhoneNumber`)}
           className="border rounded-lg p-3"
         />
 
