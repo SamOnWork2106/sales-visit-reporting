@@ -22,8 +22,7 @@ export default defineConfig({
         short_name: "Sales Visit",
 
         description:
-          "Internal Sales Visit Reporting Platform",
-
+          "Sales Visit Reporting Platform",
         theme_color: "#0f766e",
 
         background_color: "#ffffff",
@@ -56,7 +55,20 @@ export default defineConfig({
             purpose: "maskable",
           },
         ],
-      },
+        "screenshots": [
+        {
+          "src": "/ScreenshotMobile.png",
+          "sizes": "1254x1254",
+          "type": "image/png"
+        },
+        {
+          "src": "/ScreenshotDesktop.png",
+          "sizes": "1254x1254",
+          "type": "image/png",
+          "form_factor": "wide"
+        }
+        ],
+      },  
 
       workbox: {
         cleanupOutdatedCaches: true,
