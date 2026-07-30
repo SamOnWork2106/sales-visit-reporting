@@ -255,3 +255,28 @@ export async function cleanupOldFollowUps():
 
   await transaction.done;
 }
+
+
+// notify the follow up
+export async function markFollowUpNotified(
+  id: string,
+  date: string
+): Promise<void> {
+  const db = await getFollowUpDB();
+
+  const reminder = await db.get(
+    "reminders",
+    id
+  );
+
+  if (!reminder) {
+    return;
+  }
+
+  reminder.lastNotifiedDate = date;
+
+  await db.put(
+    "reminders",
+    reminder
+  );
+}

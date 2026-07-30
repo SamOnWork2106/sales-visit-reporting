@@ -16,6 +16,7 @@ import Button from "../../components/common/Button";
 import { submitReport } from "../../services/reportService";
 import { saveReportFollowUps } from "../../services/followUpService";
 import FollowUpPanel from "../../components/followup/FollowUpPanel";
+import NotificationPermission from "../../components/followup/NotificationPermission";
 
 export default function ReportPage() {
   const navigate = useNavigate();
@@ -139,6 +140,8 @@ export default function ReportPage() {
       <PageHeader />
 
       <div className="max-w-5xl mx-auto py-8 px-5">
+        <NotificationPermission />
+        
         <FollowUpPanel
           employeeId={employeeId}
         />

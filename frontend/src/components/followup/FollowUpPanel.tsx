@@ -25,6 +25,10 @@ import {
   markFollowUpCompleted,
 } from "../../services/followUpService";
 
+import {
+  notifyDueFollowUps,
+} from "../../services/notificationService";
+
 
 interface Props {
   employeeId: string;
@@ -55,6 +59,8 @@ export default function FollowUpPanel({
 
         setReminders(data);
 
+        await notifyDueFollowUps(data);
+
       } catch (error) {
         console.error(
           "Failed to load follow-ups:",
@@ -73,6 +79,29 @@ export default function FollowUpPanel({
     void loadReminders();
 
   }, [employeeId, loadReminders]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+        if (
+        document.visibilityState === "visible" &&
+        employeeId
+        ) {
+        void loadReminders();
+        }
+    };
+
+    document.addEventListener(
+        "visibilitychange",
+        handleVisibilityChange
+    );
+
+    return () => {
+        document.removeEventListener(
+        "visibilitychange",
+        handleVisibilityChange
+        );
+    };
+    }, [employeeId, loadReminders]);
 
 
   const handleComplete = async (
