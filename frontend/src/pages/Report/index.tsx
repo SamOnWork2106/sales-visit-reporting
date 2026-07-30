@@ -14,6 +14,8 @@ import PageHeader from "../../components/layout/PageHeader";
 import Button from "../../components/common/Button";
 
 import { submitReport } from "../../services/reportService";
+import { saveReportFollowUps } from "../../services/followUpService";
+import FollowUpPanel from "../../components/followup/FollowUpPanel";
 
 export default function ReportPage() {
   const navigate = useNavigate();
@@ -69,6 +71,11 @@ export default function ReportPage() {
     name: "visits",
   });
 
+  const employeeId = useWatch({
+    control,
+    name: "employee.employeeId",
+  });
+
   useEffect(() => {
     setValue("employee.totalVisits", visits.length);
   }, [visits, setValue]);
@@ -99,6 +106,19 @@ export default function ReportPage() {
 
       await submitReport(data);
 
+      try {
+        await saveReportFollowUps(data);
+      } catch (error) {
+        console.error(
+          "Failed to save follow-up reminders:",
+          error
+        );
+
+        toast.error(
+          "Report submitted, but follow-up reminders could not be saved."
+        );
+      }
+
       reset();
       navigate("/success", {
         replace: true,
@@ -119,6 +139,9 @@ export default function ReportPage() {
       <PageHeader />
 
       <div className="max-w-5xl mx-auto py-8 px-5">
+        <FollowUpPanel
+          employeeId={employeeId}
+        />
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-8"
